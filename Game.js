@@ -223,6 +223,17 @@ class Game {
     if (!this.isPlaying) return
 
     this.isPaused = !this.isPaused
+console.log(this.isPaused, Error.call());
+
+
+    if (this.isPaused) {
+      this.showScreen('pause')
+      clearInterval(this.timerInterval)
+    } else {
+      this.hideAllScreens()
+      this.startTimer()
+      this.gameLoop()
+    }
   }
 
   gameOver() {
@@ -414,26 +425,6 @@ class Game {
       height: paddleRect.height
     }
     this.handlePaddleCollision(adjustedPaddleRect, ballRect)
-    // const paddleCollision = this.checkPaddleCollision(ballRect, adjustedPaddleRect)
-    // if (paddleCollision.collided) {
-    //   const hitPosition = (ballRect.left + ballRect.width / 2) - (adjustedPaddleRect.left + adjustedPaddleRect.width / 2)
-    //   const normalizedHit = hitPosition / (adjustedPaddleRect.width / 2)
-    //   const bounceAngle = normalizedHit * Math.PI / 3
-
-    //   const speed = this.calculateBallSpeed(5)
-    //   this.ballSpeedX = speed * Math.sin(bounceAngle)
-
-    //   if (paddleCollision.hitTopHalf) {
-    //     this.ballSpeedY = -speed * Math.cos(bounceAngle)
-    //     this.ballY = adjustedPaddleRect.top - this.ballSize
-    //   } else { // for now this doen't do much work
-    //     // console.log(paddleCollision.collided);
-    //     this.ballSpeedY = speed * Math.cos(bounceAngle)
-    //     if (this.ballY < adjustedPaddleRect.top + adjustedPaddleRect.height) {
-    //       this.ballY = adjustedPaddleRect.top + adjustedPaddleRect.height
-    //     }
-    //   }
-    // }
 
     // Brick collision
     let bricksRemaining = 0
