@@ -223,17 +223,6 @@ class Game {
     if (!this.isPlaying) return
 
     this.isPaused = !this.isPaused
-console.log(this.isPaused, Error.call());
-
-
-    if (this.isPaused) {
-      this.showScreen('pause')
-      clearInterval(this.timerInterval)
-    } else {
-      this.hideAllScreens()
-      this.startTimer()
-      this.gameLoop()
-    }
   }
 
   gameOver() {
