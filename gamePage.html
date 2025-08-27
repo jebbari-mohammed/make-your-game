@@ -1,16 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="gameStyle.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cosmic Breaker</title>
+  <link rel="stylesheet" href="gameStyle.css">
 </head>
 <body>
-    <div class="div">
-        <h4 class="txt">score :</h4>
-        <h4 class="txt">time :</h4>
-        <h4 class="txt">life :</h4>
+  <div class="game-container">
+    <div class="game-header">
+      <div class="game-info">
+        <div class="lives">
+          <span class="life-icon">🚀</span>
+          <span id="lives-count">3</span>
+        </div>
+        <div class="score">
+          <span class="score-icon">⭐</span>
+          <span id="score-value">0</span>
+        </div>
+        <div class="time">
+          <span class="time-icon">⏱️</span>
+          <span id="time-value">0</span>
+        </div>
+      </div>
+      <div class="game-controls">
+        <button id="pause-btn" class="control-btn">❚❚</button>
+        <!-- <button id="restart-btn" class="control-btn">🔄</button> -->
+      </div>
     </div>
+    
+    <div class="game-board">
+      <div class="bricks-container" id="bricks-grid"></div>
+      <div class="paddle" id="paddle"></div>
+      <div class="ball" id="ball"></div>
+    </div>
+    
+    <div class="game-overlay" id="start-screen">
+      <h1 class="game-title">COSMIC BREAKER</h1>
+      <p class="game-instruction">Use arrow keys or touch to move the paddle</p>
+      <button id="start-btn" class="main-btn">START GAME</button>
+    </div>
+    
+    <div class="game-overlay" id="game-over-screen">
+      <h2 class="result-title" id="result-title">GAME OVER</h2>
+      <div class="result-stats">
+        <div class="stat">
+          <span class="stat-label">SCORE</span>
+          <span class="stat-value" id="final-score">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">TIME</span>
+          <span class="stat-value" id="final-time">0s</span>
+        </div>
+      </div>
+      <button id="play-again-btn" class="main-btn">PLAY AGAIN</button>
+    </div>
+    
+    <div class="game-overlay" id="pause-screen">
+      <h2 class="result-title">PAUSED</h2>
+      <button id="resume-btn" class="main-btn">RESUME</button>
+      <button id="restart-btn" class="main-btn">RESTART</button>
+    </div>
+    
+    <div class="game-overlay" id="win-screen">
+      <h2 class="result-title">MISSION COMPLETE!</h2>
+      <div class="result-stats">
+        <div class="stat">
+          <span class="stat-label">SCORE</span>
+          <span class="stat-value" id="win-score">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">TIME</span>
+          <span class="stat-value" id="win-time">0s</span>
+        </div>
+      </div>
+      <button id="next-level-btn" class="main-btn">NEXT LEVEL</button>
+    </div>
+  </div>
+  
+  <script src="Game.js"></script>
 </body>
 </html>
